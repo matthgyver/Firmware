@@ -12,8 +12,9 @@
 
 
 extern void safetyOverrideCheck();
-extern void setTemperature(int millivolts);
-extern _Bool processRequest();
+//extern _Bool processRequest();
+extern int processRequest();
+extern void initThermostat();
 
 
 

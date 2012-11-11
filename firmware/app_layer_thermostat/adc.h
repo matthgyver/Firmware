@@ -55,5 +55,6 @@ void ADCSetScan(int pin, int enable);
 // sampled.
 void ADCClrScan(int pin);
 
+int ReportChannelStatus(int channel);
 
 #endif  // __ADC_H__

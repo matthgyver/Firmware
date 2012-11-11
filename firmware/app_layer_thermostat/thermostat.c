@@ -5,6 +5,7 @@
 
 #include "thermostat.h"
 #include "timer.h"
+#include "adc.h"
 
 
 // double temperature=60;
@@ -25,23 +26,32 @@ _Bool tempOverride=0;
 
 
 
-_Bool processRequest()
+int processRequest()
 {
-    if (!tempOverride) return 1; else return 0;
+    return 1;
+    //if (!tempOverride) return 1; else return 0;
 }
 
 
 // Counts is 0 to 1023 indicating a step between 0v and 3.3v, 3.223mv per step.
 // Each step
-void setTemperature(int counts)
-{// temperature is in celcius
-    steps = counts;
+void setTemperature()
+{
+    //ReportChannelStatus(0);
+    steps = ReportChannelStatus(0);
+    //steps = counts;
     // 0 counts is 0mv, -50C
     // 543 counts is 1750mv, 125C
     
     //long mv = Counts * 3.223L;
     //TempC_Tenths = mv - 500;
     //blink(TempC_Tenths / 10);
+}
+
+void initThermostat()
+{
+    ADCSetScan(46,1);
+   
 }
 
 void blink(int count)
@@ -63,7 +73,10 @@ void blink(int count)
 //If temperature climbs above 90 turn off the heater and on the AC until 85.
 void safetyOverrideCheck()
 {
-    
+    setTemperature();
+    if (steps==0) return; //We don't have temperature sensor data.
+
+
     //186 steps = 600mv, 10C, 50F
     //248 = 800mv, 30C, 86F
     if (tempOverride && steps>=186 && steps<=248)

@@ -112,6 +112,9 @@ int main() {
 
   ConnectionInit();
   SoftReset();
+  
+
+  
   while (1) {
     BOOL connected = ConnectionTasks();
     if (!connected
@@ -152,6 +155,7 @@ int main() {
         state = STATE_INIT;
         break;
     }
+
 	safetyOverrideCheck();
   }
   return 0;

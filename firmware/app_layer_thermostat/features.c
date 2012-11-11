@@ -67,7 +67,8 @@ static void PinsInit() {
 }
 
 void SetPinDigitalOut(int pin, int value, int open_drain) {
-  if (processRequest()) return;
+  //TODO: jz This line leaves the yellow light on.  Find out how to clear it.
+  //if (processRequest()==1) return;
   SetPinDigitalOut_Override(pin,value,open_drain);
 }
 void SetPinDigitalOut_Override(int pin, int value, int open_drain) {
@@ -235,8 +236,9 @@ void SoftReset() {
 
   // TODO: reset all peripherals!
   SRbits.IPL = ipl_backup;  // enable interrupts
-  
-  //ADCSetScan(ADC_TEMP_PIN,1);  //Set scan for ADC Temperature sensor pin so override continues to work when phone is disconnected
+
+  initThermostat();
+//  ADCSetScan(ADC_TEMP_PIN,1);  //Set scan for ADC Temperature sensor pin so override continues to work when phone is disconnected
 }
 
 void CheckInterface(BYTE interface_id[8]) {

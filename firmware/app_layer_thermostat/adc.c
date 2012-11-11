@@ -34,7 +34,7 @@
 #include "logging.h"
 #include "protocol.h"
 #include "pins.h"
-#include "thermostat.h"
+//#include "thermostat.h"
 
 static unsigned int analog_scan_bitmask;
 static int analog_scan_num_channels;
@@ -125,6 +125,18 @@ static inline int CountOnes(unsigned int val) {
   return res;
 }
 
+
+//TODO: Add error handling.
+
+int ReportChannelStatus(int channel)
+{
+    
+    volatile unsigned int* buf = &ADC1BUF0;
+    int num_channels = CountOnes(AD1CSSL);
+    if (num_channels>channel) return buf[channel]; else return 0;
+}
+
+
 static inline void ReportAnalogInStatus() {
   volatile unsigned int* buf = &ADC1BUF0;
   int num_channels = CountOnes(AD1CSSL);
@@ -152,7 +164,7 @@ static inline void ReportAnalogInStatus() {
     var_arg[group_header_pos] |= (value & 3) << (pos_in_group * 2);  // two LSb to group header
     var_arg[var_arg_pos++] = value >> 2;  // eight MSb to channel byte
 
-    setTemperature(value);
+    //if (value>0) setTemperature(value);
   }
 
   
