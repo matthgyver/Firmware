@@ -43,7 +43,7 @@
 #include "timers.h"
 #include "pp_util.h"
 #include "incap.h"
-#include "thermostat.h"
+#include "thermostat.h"  //AT Modification
 
 ////////////////////////////////////////////////////////////////////////////////
 // Pin modes
@@ -66,11 +66,13 @@ static void PinsInit() {
   _CNIP = 1;  // CN interrupt priority is 1 so it can write an outgoing message
 }
 
+//AT Modification
 void SetPinDigitalOut(int pin, int value, int open_drain) {
-  //TODO: jz This line leaves the yellow light on.  Find out how to clear it.
   if (processRequest(pin)==0) return;
   SetPinDigitalOut_Override(pin,value,open_drain);
 }
+
+//AT Modification
 void SetPinDigitalOut_Override(int pin, int value, int open_drain) {
   log_printf("SetPinDigitalOut(%d, %d, %d)", pin, value, open_drain);
   SAVE_PIN_FOR_LOG(pin);
@@ -237,8 +239,7 @@ void SoftReset() {
   // TODO: reset all peripherals!
   SRbits.IPL = ipl_backup;  // enable interrupts
 
-  initThermostat();
-//  ADCSetScan(ADC_TEMP_PIN,1);  //Set scan for ADC Temperature sensor pin so override continues to work when phone is disconnected
+  initThermostat(); //AT Modification
 }
 
 void CheckInterface(BYTE interface_id[8]) {

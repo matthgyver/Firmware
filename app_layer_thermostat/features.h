@@ -33,6 +33,7 @@
 #include "GenericTypeDefs.h"
 
 void SetPinDigitalOut(int pin, int value, int open_drain);
+void SetPinDigitalOut_Override(int pin, int value, int open_drain);  //AT Modification
 void SetPinDigitalIn(int pin, int pull);
 void SetPinAnalogIn(int pin);
 void SetPinPwm(int pin, int pwm_num, int enable);

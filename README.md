@@ -6,7 +6,7 @@ A modified version of the IOIO firmware that adds safeguards to maintain a safe 
 ## Setup
 
 * Download the base IOIO firmware from https://github.com/ytai/ioio
-* Follow the instructions here to get the IOIO Manager app and install the Blink firmware as a test.
+* Follow the instructions here to get the IOIO Manager app and install the Blink firmware as a test.  https://github.com/ytai/ioio/wiki/The-IOIO-Manager-Application
 * Copy the app_layer_thermostat project to the firmware folder and compile using MPLAB and deploy to the IOIO
 
 ## License

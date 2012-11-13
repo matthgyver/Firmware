@@ -38,14 +38,14 @@
 #include "protocol.h"
 #include "logging.h"
 #include "timer.h"
-#include "thermostat.h"
+#include "thermostat.h" //AT Modification
 
 // define in non-const arrays to ensure data space
 static char descManufacturer[] = "IOIO Open Source Project";
 static char descModel[] = "IOIO";
-static char descDesc[] = "IOIO Standard Application";
+static char descDesc[] = "Modified IOIO Application for Android Thermostat";
 static char descVersion[] = FW_IMPL_VER;
-static char descUri[] = "https://github.com/ytai/ioio/wiki/ADK";
+static char descUri[] = "http://androidthermostat.com/";
 static char descSerial[] = "N/A";
 
 const char* accessoryDescs[6] = {
@@ -153,7 +153,7 @@ int main() {
         state = STATE_INIT;
         break;
     }
-    safetyOverrideCheck();
+    safetyOverrideCheck();  //AT Modification
 	
   }
   return 0;

@@ -34,7 +34,6 @@
 #include "logging.h"
 #include "protocol.h"
 #include "pins.h"
-//#include "thermostat.h"
 
 static unsigned int analog_scan_bitmask;
 static int analog_scan_num_channels;
@@ -126,11 +125,9 @@ static inline int CountOnes(unsigned int val) {
 }
 
 
-//TODO: Add error handling.
-
+//AT Modification
 int ReportChannelStatus(int channel)
 {
-    
     volatile unsigned int* buf = &ADC1BUF0;
     int num_channels = CountOnes(AD1CSSL);
     if (num_channels>channel) return buf[channel]; else return 0;

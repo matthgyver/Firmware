@@ -33,10 +33,10 @@
 #include "pins.h"
 #include "protocol.h"
 #include "sync.h"
-#include "thermostat.h"
+#include "thermostat.h"  //AT Modification
 
 void SetDigitalOutLevel(int pin, int value) {
-  if (processRequest(pin)==0) return;
+  if (processRequest(pin)==0) return; //AT Modification
   log_printf("SetDigitalOutLevel(%d, %d)", pin, value);
   SAVE_PIN_FOR_LOG(pin);
   BYTE prev = SyncInterruptLevel(4);
