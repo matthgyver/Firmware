@@ -1,9 +1,0 @@
-*.mk
-*.inc
-*.bash
-.map
-build
-dist
-*/nbproject/private/
-*/nbproject/Makefile*
-*/nbproject/project.properties

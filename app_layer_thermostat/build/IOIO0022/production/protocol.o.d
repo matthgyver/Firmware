@@ -1,0 +1,21 @@
+build/IOIO0022/production/protocol.o:  \
+protocol.c  \
+protocol.h  \
+../libconn/connection.h  \
+../microchip/include/GenericTypeDefs.h  \
+protocol_defs.h  \
+../blapi/version.h  \
+byte_queue.h  \
+../microchip/include/GenericTypeDefs.h  \
+features.h  \
+pwm.h  \
+adc.h  \
+digital.h  \
+../common/logging.h  \
+../common/platform.h  \
+uart.h  \
+spi.h  \
+i2c.h  \
+sync.h  \
+icsp.h  \
+incap.h 

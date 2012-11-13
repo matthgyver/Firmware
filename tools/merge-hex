@@ -1,5 +1,0 @@
-#!/bin/sh
-
-awk '/:00000001FF/ { nextfile } { print $0 }' $*
-echo :00000001FF
-
