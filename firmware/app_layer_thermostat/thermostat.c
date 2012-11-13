@@ -8,28 +8,24 @@
 #include "adc.h"
 
 
-// double temperature=60;
 int tempC_Tenths=60;
 
 //init to 141 steps, 455mv, 15.56C, 60F
 int steps = 141;
-
+int iteration = 0;
 int h1Pin=12;
-int h2Pin=13;
+//int h2Pin=13;
 int c1Pin=7;
-int c2Pin=8;
-int c3Pin=9;
+//int c2Pin=8;
+//int c3Pin=9;
 int tempPin=46;
 _Bool tempOverride=0;
 
-
-
-
-
-int processRequest()
+int processRequest(int pin)
 {
-    return 1;
-    //if (!tempOverride) return 1; else return 0;
+    //return 1;
+    if (pin==0) return 1;
+    if (tempOverride==0) return 1; else return 0;
 }
 
 
@@ -37,15 +33,7 @@ int processRequest()
 // Each step
 void setTemperature()
 {
-    //ReportChannelStatus(0);
     steps = ReportChannelStatus(0);
-    //steps = counts;
-    // 0 counts is 0mv, -50C
-    // 543 counts is 1750mv, 125C
-    
-    //long mv = Counts * 3.223L;
-    //TempC_Tenths = mv - 500;
-    //blink(TempC_Tenths / 10);
 }
 
 void initThermostat()
@@ -56,7 +44,7 @@ void initThermostat()
 
 void blink(int count)
 {
-    DelayMs(5000);
+    DelayMs(500);
     int i;
     for (i=0;i<count;i++)
     {
@@ -73,64 +61,71 @@ void blink(int count)
 //If temperature climbs above 90 turn off the heater and on the AC until 85.
 void safetyOverrideCheck()
 {
-    setTemperature();
-    if (steps==0) return; //We don't have temperature sensor data.
-
-
-    //186 steps = 600mv, 10C, 50F
-    //248 = 800mv, 30C, 86F
-    if (tempOverride && steps>=186 && steps<=248)
-    //if (tempOverride && steps>=186 && steps<=230)
+    iteration++;
+    if (iteration>100)
     {
-        allOff();
-        tempOverride=0;
-    }
+        //Only check every 100 loops to avoid unnecessary processing and rapid cycling.
+        //iteration = 0;
+        setTemperature();
+        if (steps==0) return; //We don't have temperature sensor data.
 
-    if (!tempOverride)
-    {
-        //if (steps>=237) //766mv, 80F
-        if (steps>=254)
-        {
-            //254 steps = 820mv, 32C, 89.6F
-            tempOverride=1;
-            overTemp();
 
-        } else if (steps<=177)
+        //186 steps = 600mv, 10C, 50F
+        //248 = 800mv, 30C, 86F
+        if (tempOverride==1)
         {
-            //177 steps = 570mv, 7C, 44.6F
-            tempOverride=1;
-            underTemp();
+            if (steps>=186 && steps<=248) {
+            //if (steps>=186 && steps<=248) {
+                allOff();
+                tempOverride=0;
+                DelayMs(5000);
+            }
+        }
+
+        if (tempOverride==0)
+        {
+            //if (steps>=237) //766mv, 80F
+            if (steps>=254)
+            {
+                //254 steps = 820mv, 32C, 89.6F
+                tempOverride=1;
+                overTemp();
+                DelayMs(5000);
+
+            } else if (steps<=177)
+            {
+                //177 steps = 570mv, 7C, 44.6F
+                tempOverride=1;
+                underTemp();
+                DelayMs(5000);
+            }
         }
     }
-    
 }
 
 void allOff()
 {
     
     SetPinDigitalOut_Override(h1Pin, 0, 0);
-    SetPinDigitalOut_Override(h2Pin, 0, 0);
+    //SetPinDigitalOut_Override(h2Pin, 0, 0);
     SetPinDigitalOut_Override(c1Pin, 0, 0);
-    SetPinDigitalOut_Override(c2Pin, 0, 0);
-    SetPinDigitalOut_Override(c3Pin, 0, 0);
-     
+    //SetPinDigitalOut_Override(c2Pin, 0, 0);
+    //SetPinDigitalOut_Override(c3Pin, 0, 0);
 }
 
 void overTemp()
 {
     
     SetPinDigitalOut_Override(h1Pin, 0, 0);
-    SetPinDigitalOut_Override(h2Pin, 0, 0);
+    //SetPinDigitalOut_Override(h2Pin, 0, 0);
     SetPinDigitalOut_Override(c1Pin, 1, 0);
-   
 }
 
 void underTemp()
 {
     
     SetPinDigitalOut_Override(c1Pin, 0, 0);
-    SetPinDigitalOut_Override(c2Pin, 0, 0);
-    SetPinDigitalOut_Override(c3Pin, 0, 0);
-    SetPinDigitalOut_Override(h1Pin, 1, 0);
-     
+    //SetPinDigitalOut_Override(c2Pin, 0, 0);
+    //SetPinDigitalOut_Override(c3Pin, 0, 0);
+    SetPinDigitalOut_Override(h1Pin, 1, 0);  
 }

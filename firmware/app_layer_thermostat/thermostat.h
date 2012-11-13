@@ -12,8 +12,7 @@
 
 
 extern void safetyOverrideCheck();
-//extern _Bool processRequest();
-extern int processRequest();
+extern int processRequest(int);
 extern void initThermostat();
 
 

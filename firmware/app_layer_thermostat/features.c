@@ -68,7 +68,7 @@ static void PinsInit() {
 
 void SetPinDigitalOut(int pin, int value, int open_drain) {
   //TODO: jz This line leaves the yellow light on.  Find out how to clear it.
-  //if (processRequest()==1) return;
+  if (processRequest(pin)==0) return;
   SetPinDigitalOut_Override(pin,value,open_drain);
 }
 void SetPinDigitalOut_Override(int pin, int value, int open_drain) {

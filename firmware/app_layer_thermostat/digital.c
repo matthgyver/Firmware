@@ -36,8 +36,7 @@
 #include "thermostat.h"
 
 void SetDigitalOutLevel(int pin, int value) {
-  //may cause problems on usb reconnect
-  //if (processRequest()==1) return;
+  if (processRequest(pin)==0) return;
   log_printf("SetDigitalOutLevel(%d, %d)", pin, value);
   SAVE_PIN_FOR_LOG(pin);
   BYTE prev = SyncInterruptLevel(4);
