@@ -53,7 +53,8 @@ void allOff()
 
 int processRequest(int pin)
 {
-    if (pin==0) return 1;
+    //return 1;
+    if (pin==0 || pin==tempPin) return 1;
     if (tempOverride==0) return 1; else return 0;
 }
 
@@ -66,7 +67,8 @@ void setTemperature()
 
 void initThermostat()
 {
-    ADCSetScan(tempPin,1);
+//    ADCSetScan(tempPin,1);
+    SetPinAnalogIn(tempPin);
 }
 
 void blink(int count)
