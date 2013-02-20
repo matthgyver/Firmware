@@ -5,9 +5,10 @@ protocol.h  \
 ../microchip/include/GenericTypeDefs.h  \
 protocol_defs.h  \
 ../blapi/version.h  \
-byte_queue.h  \
+../common/byte_queue.h  \
 ../microchip/include/GenericTypeDefs.h  \
 features.h  \
+../microchip/include/GenericTypeDefs.h  \
 pwm.h  \
 adc.h  \
 digital.h  \

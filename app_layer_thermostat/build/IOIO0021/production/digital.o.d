@@ -10,5 +10,4 @@ protocol.h  \
 ../microchip/include/GenericTypeDefs.h  \
 protocol_defs.h  \
 sync.h  \
-../microchip/include/GenericTypeDefs.h  \
-thermostat.h 
+../microchip/include/GenericTypeDefs.h 

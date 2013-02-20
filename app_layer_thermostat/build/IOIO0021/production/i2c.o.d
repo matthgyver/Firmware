@@ -5,7 +5,8 @@ i2c.h  \
 ../common/platform.h  \
 sync.h  \
 ../microchip/include/GenericTypeDefs.h  \
-byte_queue.h  \
+../common/byte_queue.h  \
+../microchip/include/GenericTypeDefs.h  \
 ../common/logging.h  \
 pp_util.h  \
 protocol.h  \

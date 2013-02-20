@@ -8,5 +8,4 @@ features.h  \
 protocol.h  \
 protocol_defs.h  \
 ../common/logging.h  \
-../microchip/include/timer.h  \
 thermostat.h 

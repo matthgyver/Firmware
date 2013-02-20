@@ -1,7 +1,7 @@
 build/IOIO0021/production/spi.o:  \
 spi.c  \
 spi.h  \
-byte_queue.h  \
+../common/byte_queue.h  \
 ../microchip/include/GenericTypeDefs.h  \
 ../common/platform.h  \
 ../common/logging.h  \
@@ -11,4 +11,5 @@ protocol.h  \
 ../libconn/connection.h  \
 ../microchip/include/GenericTypeDefs.h  \
 protocol_defs.h  \
-sync.h 
+sync.h  \
+../microchip/include/GenericTypeDefs.h 

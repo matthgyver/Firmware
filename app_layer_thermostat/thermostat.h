@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   thermostat.h
  * Author: Jeremy
  *
@@ -8,7 +8,7 @@
 #ifndef __THERMOSTAT_H
 #define	__THERMOSTAT_H
 
-#define ADC_TEMP_PIN 46
+#define ADC_TEMP_PIN 43
 
 
 extern void safetyOverrideCheck();
@@ -19,4 +19,3 @@ extern void initThermostat();
 
 
 #endif	/* THERMOSTAT_H */
-

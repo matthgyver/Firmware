@@ -18,12 +18,12 @@ int tempC_Tenths=60;
 //init to 141 steps, 455mv, 15.56C, 60F
 int steps = 141;
 int iteration = 0;
-int h1Pin=12;
+int h1Pin=5;
 //int h2Pin=13;
 int c1Pin=7;
 //int c2Pin=8;
 //int c3Pin=9;
-int tempPin=46;
+int tempPin=43;
 int tempOverride=0;
 
 

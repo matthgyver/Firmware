@@ -43,7 +43,7 @@
 #include "timers.h"
 #include "pp_util.h"
 #include "incap.h"
-#include "thermostat.h"  //AT Modification
+#include "thermostat.h" //ANDROID THERMOSTAT MOD
 
 ////////////////////////////////////////////////////////////////////////////////
 // Pin modes
@@ -57,26 +57,27 @@ static void PinsInit() {
   for (i = 1; i < NUM_PINS; ++i) {
     SetPinDigitalIn(i, 0);    // all other pins: input, no-pull
   }
-  for (i = 0; i < NUM_UART_MODULES; ++i) {
-    SetPinUart(0, i, 0, 0);  // UART RX disabled
-  }
   // clear and enable global CN interrupts
   _CNIF = 0;
   _CNIE = 1;
   _CNIP = 1;  // CN interrupt priority is 1 so it can write an outgoing message
 }
 
-//AT Modification
+//ANDROID THERMOSTAT MOD
 void SetPinDigitalOut(int pin, int value, int open_drain) {
   if (processRequest(pin)==0) return;
   SetPinDigitalOut_Override(pin,value,open_drain);
 }
 
-//AT Modification
+//ANDROID THERMOSTAT MOD
 void SetPinDigitalOut_Override(int pin, int value, int open_drain) {
   log_printf("SetPinDigitalOut(%d, %d, %d)", pin, value, open_drain);
   SAVE_PIN_FOR_LOG(pin);
-  ADCSetScan(pin, 0);
+  ADCSetScan(pin, 0); //ANDROID THERMOSTAT MOD
+
+  // Protect from the user trying to use push-pull, later pulling low using the
+  // bootloader pin.
+  if (pin == 0) open_drain = 1;
   PinSetAnsel(pin, 0);
   PinSetRpor(pin, 0);
   PinSetCnen(pin, 0);
@@ -90,7 +91,7 @@ void SetPinDigitalOut_Override(int pin, int value, int open_drain) {
 void SetPinDigitalIn(int pin, int pull) {
   log_printf("SetPinDigitalIn(%d, %d)", pin, pull);
   SAVE_PIN_FOR_LOG(pin);
-  ADCSetScan(pin, 0);
+  ADCSetScan(pin, 0);  //ANDROID THERMOSTAT MOD
   PinSetAnsel(pin, 0);
   PinSetRpor(pin, 0);
   PinSetCnen(pin, 0);
@@ -171,7 +172,22 @@ void SetPinAnalogIn(int pin) {
   PinSetCnpd(pin, 0);
   PinSetAnsel(pin, 1);
   PinSetTris(pin, 1);
-  ADCSetScan(pin, 0);
+  ADCSetScan(pin, 0); //ANDROID THERMOSTAT MOD
+}
+
+void SetPinCapSense(int pin) {
+  log_printf("SetPinCapSense(%d)", pin);
+  SAVE_PIN_FOR_LOG(pin);
+
+  // In cap-sense mode, the pin is configured for analog input, but initially
+  // pulling low in order to discharge, the circuit.
+  PinSetRpor(pin, 0);
+  PinSetCnen(pin, 0);
+  PinSetCnpu(pin, 0);
+  PinSetCnpd(pin, 0);
+  PinSetAnsel(pin, 1);
+  PinSetLat(pin, 0);
+  PinSetTris(pin, 1);
 }
 
 void SetPinSpi(int pin, int spi_num, int mode, int enable) {
@@ -238,8 +254,7 @@ void SoftReset() {
 
   // TODO: reset all peripherals!
   SRbits.IPL = ipl_backup;  // enable interrupts
-
-  initThermostat(); //AT Modification
+  initThermostat(); //ANDROID THERMOSTAT MOD
 }
 
 void CheckInterface(BYTE interface_id[8]) {

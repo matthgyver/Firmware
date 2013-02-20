@@ -2,7 +2,8 @@ build/IOIO0021/production/icsp.o:  \
 icsp.c  \
 icsp.h  \
 ../microchip/include/GenericTypeDefs.h  \
-byte_queue.h  \
+../common/byte_queue.h  \
+../microchip/include/GenericTypeDefs.h  \
 pins.h  \
 ../common/platform.h  \
 ../common/logging.h  \
