@@ -7,13 +7,12 @@ A modified version of the IOIO firmware that adds safeguards to maintain a safe 
 
 * Download the base IOIO firmware from https://github.com/ytai/ioio
 * Follow the instructions here to get the IOIO Manager app and install the Blink firmware as a test.  https://github.com/ytai/ioio/wiki/The-IOIO-Manager-Application
-* Copy the app_layer_thermostat project to the firmware folder and compile using MPLAB
-* Run the following commands to package the app layer:
-
-	tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0030/production/*.hex /tmp/IOIO0030.ioio
-
-	zip -j thermostat-rev-b.ioioapp /tmp/IOIO0030.ioio
-* Deploy to the IOIO using IOIOManager
+* Copy the app_layer_thermostat project to the firmware folder and compile using MPLAB X
+* If you're using Windows use Cygwin to get a linux style command prompt
+* Navigate to the ioio-master root directory
+* Run:  tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0030/production/*.hex /tmp/IOIO0030.ioio
+* Run: 	zip -j thermostat-rev-b.ioioapp /tmp/IOIO0030.ioio
+* Deploy to the IOIO-OTG using IOIODude
 
 ## License
 

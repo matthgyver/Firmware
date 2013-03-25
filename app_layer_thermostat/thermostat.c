@@ -25,6 +25,7 @@ int c1Pin=7;
 //int c3Pin=9;
 int tempPin=43;
 int tempOverride=0;
+int armed=0;
 
 
 void overTemp()
@@ -131,17 +132,23 @@ void safetyOverrideCheck()
             {
                 if (steps>=264)
                 {
-                    //264 steps = 850mv, 35C, 95F
-                    tempOverride=1;
-                    overTemp();
-                    //DelayMs(5000);
+                    if (armed==1)
+                    {
+                        //264 steps = 850mv, 35C, 95F
+                        tempOverride=1;
+                        overTemp();
+                    }
 
                 } else if (steps<=177)
                 {
-                    //177 steps = 570mv, 7C, 44.6F
-                    tempOverride=1;
-                    underTemp();
-                    //DelayMs(5000);
+                    if (armed==1)
+                    {
+                        //177 steps = 570mv, 7C, 44.6F
+                        tempOverride=1;
+                        underTemp();
+                    }
+                } else {
+                    if (armed==0) armed=1;
                 }
             }
         }
