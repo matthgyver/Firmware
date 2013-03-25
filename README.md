@@ -7,17 +7,16 @@ A modified version of the IOIO firmware that adds safeguards to maintain a safe 
 
 * Download the base IOIO firmware from https://github.com/ytai/ioio
 * Follow the instructions here to get the IOIO Manager app and install the Blink firmware as a test.  https://github.com/ytai/ioio/wiki/The-IOIO-Manager-Application
-* Copy the app_layer_thermostat project to the firmware folder and compile using MPLAB
-* Run the following commands to package the app layer:
-	tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0021/production/*.hex /tmp/IOIO0021.ioio
-	tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0022/production/*.hex /tmp/IOIO0022.ioio
-	tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0023/production/*.hex /tmp/IOIO0023.ioio
-	zip -j thermostat.ioioapp /tmp/IOIO0021.ioio /tmp/IOIO0022.ioio /tmp/IOIO0023.ioio
-* Deploy to the IOIO using IOIOManager
+* Copy the app_layer_thermostat project to the firmware folder and compile using MPLAB X
+* If you're using Windows use Cygwin to get a linux style command prompt
+* Navigate to the ioio-master root directory
+* Run:  tools/hex2ioio/hex2ioio firmware/app_layer_thermostat/dist/IOIO0030/production/*.hex /tmp/IOIO0030.ioio
+* Run: 	zip -j thermostat-rev-b.ioioapp /tmp/IOIO0030.ioio
+* Deploy to the IOIO-OTG using IOIODude
 
 ## License
 
-Copyright (C) 2012 Trilitech, LLC
+Copyright (C) 2013 Trilitech, LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
