@@ -20,6 +20,7 @@ int steps = 141;
 int iteration = 0;
 int h1Pin=5;
 //int h2Pin=13;
+int fPin=6;
 int c1Pin=7;
 //int c2Pin=8;
 //int c3Pin=9;
@@ -35,6 +36,7 @@ void overTemp()
         SetPinDigitalOut_Override(h1Pin, 0, 0);
         //SetPinDigitalOut_Override(h2Pin, 0, 0);
         SetPinDigitalOut_Override(c1Pin, 1, 0);
+        SetPinDigitalOut_Override(fPin, 1, 0);
     } ETRY;
 }
 
@@ -54,6 +56,7 @@ void allOff()
         SetPinDigitalOut_Override(h1Pin, 0, 0);
         //SetPinDigitalOut_Override(h2Pin, 0, 0);
         SetPinDigitalOut_Override(c1Pin, 0, 0);
+        SetPinDigitalOut_Override(fPin, 0, 0);
         //SetPinDigitalOut_Override(c2Pin, 0, 0);
         //SetPinDigitalOut_Override(c3Pin, 0, 0);
     } ETRY;
