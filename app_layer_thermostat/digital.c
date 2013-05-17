@@ -33,8 +33,10 @@
 #include "pins.h"
 #include "protocol.h"
 #include "sync.h"
+#include "thermostat.h" //ANDROID THERMOSTAT MOD
 
 void SetDigitalOutLevel(int pin, int value) {
+  heartbeat(); //ANDROID THERMOSTAT MOD
   log_printf("SetDigitalOutLevel(%d, %d)", pin, value);
   SAVE_PIN_FOR_LOG(pin);
   BYTE prev = SyncInterruptLevel(4);

@@ -27,7 +27,17 @@ int c1Pin=7;
 int tempPin=43;
 int tempOverride=0;
 int armed=0;
+int cyclesUntilReset = -1;
 
+void heartbeat(){ cyclesUntilReset = 10000; }
+void checkHeartbeat() {
+    if (cyclesUntilReset>=0) cyclesUntilReset = cyclesUntilReset - 1;
+    if (cyclesUntilReset==0)
+    {
+        cyclesUntilReset = -1;
+        HardReset();
+    }
+}
 
 void overTemp()
 {
@@ -114,6 +124,7 @@ void safetyOverrideCheck()
         iteration++;
         if (iteration>100)
         {
+            checkHeartbeat();
             //Only check every 100 loops to avoid unnecessary processing and rapid cycling.
             iteration = 0;
             setTemperature();

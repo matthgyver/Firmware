@@ -39,6 +39,7 @@
 #include "logging.h"
 #include "protocol.h"
 #include "pins.h"
+#include "thermostat.h" //ANDROID THERMOSTAT MOD
 
 static unsigned int analog_scan_bitmask;
 static int analog_scan_num_channels;

@@ -8,4 +8,5 @@ protocol.h  \
 ../microchip/include/GenericTypeDefs.h  \
 protocol_defs.h  \
 pins.h  \
-../common/platform.h 
+../common/platform.h  \
+thermostat.h 

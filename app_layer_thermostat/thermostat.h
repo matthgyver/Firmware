@@ -14,6 +14,8 @@
 extern void safetyOverrideCheck();
 extern int processRequest(int);
 extern void initThermostat();
+extern void checkHeartbeat();
+extern void heartbeat();
 
 
 
