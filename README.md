@@ -3,6 +3,14 @@ Android Thermostat Firmware Modifications
 
 A modified version of the IOIO firmware that adds safeguards to maintain a safe temperature range of 45F to 90F regardless of the commands received from Android
 
+## MatthGyver update
+
+My modifications are compatible with Android 4+ (tested on Nexus / KitKat)
+
+Now it is not necessary to activate the USB debug mode.
+
+I'm not a developer and provided this version <b>without any warranty so use this version to your own risk.</b>
+
 ## Setup
 
 * Download the base IOIO firmware from https://github.com/ytai/ioio
