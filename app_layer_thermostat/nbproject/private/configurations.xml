@@ -5,7 +5,7 @@
   <confs>
     <conf name="IOIO0021" type="2">
       <platformToolSN></platformToolSN>
-      <languageToolchainDir>D:\Program Files (x86)\Microchip\MPLAB C30\bin</languageToolchainDir>
+      <languageToolchainDir>/opt/microchip/xc16/v1.25/bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>
         <placeholder2>place holder 2</placeholder2>
@@ -23,7 +23,7 @@
     </conf>
     <conf name="IOIO0022" type="2">
       <platformToolSN></platformToolSN>
-      <languageToolchainDir>D:\Program Files (x86)\Microchip\MPLAB C30\bin</languageToolchainDir>
+      <languageToolchainDir>/opt/microchip/xc16/v1.25/bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>
         <placeholder2>place holder 2</placeholder2>
@@ -41,7 +41,7 @@
     </conf>
     <conf name="IOIO0023" type="2">
       <platformToolSN></platformToolSN>
-      <languageToolchainDir>D:\Program Files (x86)\Microchip\MPLAB C30\bin</languageToolchainDir>
+      <languageToolchainDir>/opt/microchip/xc16/v1.25/bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>
         <placeholder2>place holder 2</placeholder2>
@@ -59,7 +59,7 @@
     </conf>
     <conf name="IOIO0030" type="2">
       <platformToolSN></platformToolSN>
-      <languageToolchainDir>D:\Program Files (x86)\Microchip\MPLAB C30\bin</languageToolchainDir>
+      <languageToolchainDir>/opt/microchip/xc16/v1.25/bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>
         <placeholder2>place holder 2</placeholder2>

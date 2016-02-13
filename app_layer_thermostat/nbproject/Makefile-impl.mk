@@ -24,10 +24,10 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=app_layer_thermostat
+PROJECTNAME=app_layer_thermostat_v2
 
 # Active Configuration
-DEFAULTCONF=IOIO0021
+DEFAULTCONF=IOIO0030
 CONF=${DEFAULTCONF}
 
 # All Configurations

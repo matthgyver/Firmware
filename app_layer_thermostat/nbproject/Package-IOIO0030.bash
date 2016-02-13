@@ -10,9 +10,9 @@ CND_CONF=IOIO0030
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/app_layer_thermostat.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=app_layer_thermostat.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=applayerthermostat/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/app_layer_thermostat_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=app_layer_thermostat_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=applayerthermostatv2/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/applayerthermostat/bin
+makeDirectory ${TMPDIR}/applayerthermostatv2/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/applayerthermostat.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/applayerthermostatv2.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/applayerthermostat.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/applayerthermostatv2.tar *
 checkReturnCode
 
 # Cleanup

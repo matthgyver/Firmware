@@ -1,22 +1,22 @@
 build/IOIO0030/production/protocol.o:  \
 protocol.c  \
 protocol.h  \
-../libconn/connection.h  \
+ ../libconn/connection.h  \
 ../microchip/include/GenericTypeDefs.h  \
-protocol_defs.h  \
+ protocol_defs.h  \
 ../blapi/version.h  \
 ../common/byte_queue.h  \
-../microchip/include/GenericTypeDefs.h  \
 features.h  \
-../microchip/include/GenericTypeDefs.h  \
-pwm.h  \
+ pwm.h  \
 adc.h  \
 digital.h  \
 ../common/logging.h  \
 ../common/platform.h  \
 uart.h  \
-spi.h  \
+ spi.h  \
 i2c.h  \
 sync.h  \
 icsp.h  \
-incap.h 
+incap.h  \
+sequencer_protocol.h  \
+sequencer.h 

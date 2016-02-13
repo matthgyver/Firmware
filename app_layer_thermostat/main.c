@@ -35,11 +35,11 @@
 #include "thermostat.h" //ANDROID THERMOSTAT MOD
 
 // define in non-const arrays to ensure data space
-static char descManufacturer[] = "IOIO Open Source Project";
+static char descManufacturer[] = "Fork of IOIO Application for Android Thermostat";
 static char descModel[] = "IOIO";
-static char descDesc[] = "Modified IOIO Application for Android Thermostat";
+static char descDesc[] = "IOIO Standard Application";
 static char descVersion[] = FW_IMPL_VER;
-static char descUri[] = "http://androidthermostat.com/";
+static char descUri[] = "https://github.com/matthgyver/Firmware";
 static char descSerial[] = "N/A";
 
 const char* accessoryDescs[6] = {

@@ -43,6 +43,7 @@
 #include "timers.h"
 #include "pp_util.h"
 #include "incap.h"
+#include "sync.h"
 #include "thermostat.h" //ANDROID THERMOSTAT MOD
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -172,7 +173,6 @@ void SetPinAnalogIn(int pin) {
   PinSetCnpd(pin, 0);
   PinSetAnsel(pin, 1);
   PinSetTris(pin, 1);
-  ADCSetScan(pin, 0); //ANDROID THERMOSTAT MOD
 }
 
 void SetPinCapSense(int pin) {
@@ -257,11 +257,14 @@ void SoftReset() {
   initThermostat(); //ANDROID THERMOSTAT MOD
 }
 
+
 void CheckInterface(BYTE interface_id[8]) {
   OUTGOING_MESSAGE msg;
   msg.type = CHECK_INTERFACE_RESPONSE;
   msg.args.check_interface_response.supported
-      = (memcmp(interface_id, PROTOCOL_IID_IOIO0003, 8) == 0)
+      = (memcmp(interface_id, PROTOCOL_IID_IOIO0005, 8) == 0)
+        || (memcmp(interface_id, PROTOCOL_IID_IOIO0004, 8) == 0)
+        || (memcmp(interface_id, PROTOCOL_IID_IOIO0003, 8) == 0)
         || (memcmp(interface_id, PROTOCOL_IID_IOIO0002, 8) == 0)
         || (memcmp(interface_id, PROTOCOL_IID_IOIO0001, 8) == 0);
   AppProtocolSendMessage(&msg);

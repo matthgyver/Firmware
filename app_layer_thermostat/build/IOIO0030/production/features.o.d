@@ -1,21 +1,21 @@
 build/IOIO0030/production/features.o:  \
 features.c  \
 features.h  \
-../microchip/include/GenericTypeDefs.h  \
+ ../microchip/include/GenericTypeDefs.h  \
 ../microchip/include/Compiler.h  \
-pins.h  \
+ pins.h  \
 ../common/platform.h  \
 ../common/logging.h  \
 protocol.h  \
-../libconn/connection.h  \
-../microchip/include/GenericTypeDefs.h  \
+ ../libconn/connection.h  \
 protocol_defs.h  \
 adc.h  \
 pwm.h  \
 uart.h  \
 spi.h  \
 i2c.h  \
-timers.h  \
+ timers.h  \
 pp_util.h  \
 incap.h  \
+sync.h  \
 thermostat.h 

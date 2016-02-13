@@ -3,12 +3,13 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>AppLayerThermostat</name>
+            <name>AppLayerThermostatV2</name>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
+            <asminc-extensions/>
             <make-dep-projects/>
         </data>
     </configuration>
